@@ -83,11 +83,23 @@ export default new Router({
           meta: {title: '所有用户'}
         },
         {
+          path: '/ou/:id',
+          component: resolve => require(['../components/page/OtherUser.vue'],resolve),
+          meta: {title: '个人主页'}
+        },
+        {
           //所有专题组件
           path: '/collections',
           component: resolve => require(['../components/page/Collections.vue'], resolve),
           meta: {title: '所有专题'}
         },
+        {
+          //文章详情
+          path:'/p/:id',
+          component: resolve =>require(['../components/page/Article.vue'],resolve),
+          meta:{title:'文章详情'}
+        },
+
         {
           path: '/c/:id',
           component: resolve => require(['../components/collection/Collection.vue'],resolve),
@@ -145,6 +157,17 @@ export default new Router({
       path: '/write',
       component: resolve => require(['../components/page/Write.vue'], resolve),
       meta: {title: '写文章'}
+    },
+    {
+      path: '/sign_in',
+      component: resolve =>require(['../components/page/Login.vue'],resolve),
+      meta:{title: '登录'}
+    },
+    {
+      path: '/sign_up',
+      component: resolve =>require(['../components/page/Register.vue'],resolve),
+      meta:{title: '注册'}
     }
+
   ]
 })

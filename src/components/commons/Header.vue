@@ -62,11 +62,11 @@
       <b-navbar-nav class="ml-auto">
 
         <b-nav-item v-if="token===null">
-          <router-link to="/login">登录</router-link>
+          <router-link to="/sign_in">登录</router-link>
         </b-nav-item>
 
         <b-nav-item v-if="token===null">
-          <router-link to="/regist">注册</router-link>
+          <router-link to="/sign_up">注册</router-link>
         </b-nav-item>
 
         <b-nav-item href="#" v-if="token!=null">Aa</b-nav-item>

@@ -7,13 +7,22 @@
     <div>
       <div v-for="index in arr" class="row" style="margin-top: 15px">
         <div class="col-md-2">
+          <router-link :to=" '/ou/' + index ">
           <img :src="authors[index].avatar" class="tx">
+          </router-link>
         </div>
         <div class="col-md-8">
           <div>{{authors[index].name}}</div>
           <div class="jj">{{authors[index].info}}</div>
         </div>
         <div class="col-md-2"><span class="gz">关注</span></div>
+      </div>
+      <div>
+        <router-link to="/users">
+          <b-button variant="outline-secondary" class="qb">
+            查看全部&nbsp;&nbsp;>
+          </b-button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -132,5 +141,10 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+  }
+  .qb{
+    margin-top: 15px;
+    width: 270px;
+    height: 35px;
   }
 </style>

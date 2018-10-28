@@ -1,6 +1,6 @@
 <template>
   <div class="container recommend">
-    <img class="recommend-banner" src="//cdn2.jianshu.io/assets/web/recommend-collection-58f8968955ecbeb8f8f3b4cd95ec76be.png" alt="Recommend collection">
+    <img class="recommend-banner" src="https://cdn2.jianshu.io/assets/web/recommend-collection-58f8968955ecbeb8f8f3b4cd95ec76be.png">
     <a target="_blank" class="help" href="https://www.jianshu.com/p/9e6397e3e921">
       如何创建并玩转专题
     </a>

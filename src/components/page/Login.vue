@@ -23,7 +23,10 @@
             <el-input
               placeholder="手机号或邮箱"
               prefix-icon="el-icon-yonghu"
-              v-model="input21">
+              id="exampleInput1"
+              type="email"
+              v-model="email"
+              required >
             </el-input>
           </div>
 
@@ -33,7 +36,8 @@
               type="password"
               placeholder="密码"
               prefix-icon="el-icon-mima"
-              v-model="input21">
+              v-model="password"
+              required >
             </el-input>
           </div>
 
@@ -50,7 +54,7 @@
             </b-dropdown>
           </div>
 
-          <button class="sign-in-button" id="sign-in-form-submit-btn" type="button">
+          <button class="sign-in-button" id="sign-in-form-submit-btn" type="button" @click="onClick">
             <span id="sign-in-loading"></span>
             登录
           </button>
@@ -93,6 +97,25 @@
 
 
     export default {
+      data() {
+        return {
+          email: '',
+          password: ''
+        }
+      },
+      methods: {
+        onClick() {
+          var that = this;
+          this.$http
+            .post('http://localhost:8080/user/sign_in', {"email": this.email, "password": this.password})
+            .then(function (response) {
+              alert(JSON.stringify(response.data.data));
+              localStorage.setItem("loginUser", JSON.stringify(response.data.data))
+              that.$router.push("/")
+            })
+        }
+      },
+
       name: "Login"
     }
 </script>

@@ -13,11 +13,11 @@
               投稿
             </div>
             <div class="title">
-              <h3>{{author.name}}</h3>
+              <h3>{{author.nickname}}</h3>
             </div>
             <div class="info">
               <p>
-                <span>{{author.info}}</span>
+                <span>写了{{author.wordsCount}}万字·{{author.likeCount}}人喜欢</span>
               </p>
             </div>
           </div>
@@ -35,16 +35,13 @@
           </div>
         </b-col>
       </div>
-
     </div>
 </template>
 
 <script>
   import vArticle from "../module/Articles"
 
-
-
-    export default {
+  export default {
       components:{
         vArticle
       },
@@ -58,23 +55,19 @@
       activated() {
         this.id = this.$route.params.id;
         console.log(this.id);
-        if (this.id == 1) {
-          var t = {
-            "id":1,
-            "avatar":"https://upload.jianshu.io/users/upload_avatars/3343569/3cd46650-54bc-4383-989f-80aacb0c42fe.jpg",
-            "name":"吴晓布",
-            "info":"写了593.9k字 · 14.8k喜欢",
-            "description":"合抱之木，生于毫末；九层之台，起于累土。"
-          };
-          this.author = t;
-        } else {
-          this.author = {};
-        }
+      },
+      created() {
+        var that = this;
+        this.$http
+          .post('http://localhost:8080/user/' + that.id)
+          .then(function (response) {
+            // alert(JSON.stringify(response.data.data));
+            that.author = response.data.data;
+          })
       },
       computed: function () {
         return this.author;
       },
-
         name: "OtherUser"
     }
 </script>

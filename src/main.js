@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/icon/iconfont.css';
+import axios from 'axios'
 
 
 Vue.use(ElementUI);
@@ -20,6 +21,7 @@ Vue.use(bootstrap);
 library.add(faCoffee);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
+Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
 new Vue({
